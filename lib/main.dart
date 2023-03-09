@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:niongo/views/home_view.dart';
+import 'package:niongo/views/login_view.dart';
+import 'package:niongo/views/signin_view.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+final supabase = Supabase.instance.client;
+const String url = 'https://uqdbnylrudvtwoxmifcq.supabase.co';
+const String anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZGJueWxydWR2dHdveG1pZmNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgxMzc1NDIsImV4cCI6MTk5MzcxMzU0Mn0.6Bo8TjOvvqPIRHSp5AmEe3JcKxFVyLo33HO0oE4MPOs';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(url:url ,anonKey: anonKey);
   runApp(const MyApp());
 }
 
@@ -15,53 +24,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      home: LoginView(),
+      initialRoute: '/loginview',
+      routes: {
+        '/loginview':(context) => LoginView(),
+        '/siginview':(context) => SignInView(),
+        '/homeview':(context)=> const HomeView()
+      },
     );
   }
 }

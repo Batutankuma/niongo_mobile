@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:niongo/views/signin_view.dart';
 
-class LoginView extends StatelessWidget {
+class SignInView extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final _globale = GlobalKey<FormState>();
 
-  LoginView({super.key});
+  SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +17,7 @@ class LoginView extends StatelessWidget {
           key: _globale,
           child: Column(
             children: [
+              const Text("Signin"),
               const Spacer(),
               TextFormField(
                 controller: _email,
@@ -29,14 +29,11 @@ class LoginView extends StatelessWidget {
               ),
               const Spacer(),
               ElevatedButton.icon(
-                  onPressed: ()=> Navigator.pushNamedAndRemoveUntil(context, '/homeview', (route) => false),
-                  icon: const Icon(Icons.login),
-                  label: const Text("Login")),
-              ElevatedButton(
-                child: const Text("SignIn"),
-                onPressed: () => Navigator.pushNamed(context, '/siginview'),
-              ),
-              ElevatedButton(child: const Text("Google"), onPressed: () {})
+                onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                    context, '/homeview', (route) => false),
+                icon: const Icon(Icons.login),
+                label: const Text("Login"),
+              )
             ],
           ),
         ),
