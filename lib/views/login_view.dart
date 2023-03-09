@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:niongo/views/signin_view.dart';
 
 class LoginView extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
