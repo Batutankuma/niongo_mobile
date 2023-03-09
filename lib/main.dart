@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:niongo/views/home_view.dart';
 import 'package:niongo/views/login_view.dart';
+import 'package:niongo/views/profil_view.dart';
 import 'package:niongo/views/signin_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 final supabase = Supabase.instance.client;
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/loginview':(context) => LoginView(),
         '/siginview':(context) => SignInView(),
-        '/homeview':(context)=> const HomeView()
+        '/homeview':(context)=> const HomeView(),
+        '/profilview':(context) => ProfilView()
       },
     );
   }
