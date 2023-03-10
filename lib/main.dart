@@ -3,6 +3,7 @@ import 'package:niongo/views/home_view.dart';
 import 'package:niongo/views/login_view.dart';
 import 'package:niongo/views/profil_view.dart';
 import 'package:niongo/views/signin_view.dart';
+import 'package:niongo/views/splash_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 final supabase = Supabase.instance.client;
 const String url = 'https://uqdbnylrudvtwoxmifcq.supabase.co';
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginView(),
-      initialRoute: '/loginview',
+      initialRoute: '/splashview',
       routes: {
+        '/splashview':(context) => const IntroScreenDefault(),
         '/loginview':(context) => LoginView(),
         '/siginview':(context) => SignInView(),
         '/homeview':(context)=> const HomeView(),
