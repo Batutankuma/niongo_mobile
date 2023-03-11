@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginView(),
-      initialRoute: '/splashview',
+      initialRoute: '/loginview',
       routes: {
         '/splashview':(context) => const IntroScreenDefault(),
         '/loginview':(context) => LoginView(),

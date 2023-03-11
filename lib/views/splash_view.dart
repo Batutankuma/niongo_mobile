@@ -43,7 +43,7 @@ class IntroScreenDefaultState extends State<IntroScreenDefault> {
   }
 
   void onDonePress() {
-    debugPrint("End of slides");
+    Navigator.pushReplacementNamed(context, '/loginview');
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niongo/controllers/authentification.dart';
 
 class SignInView extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
@@ -29,8 +30,10 @@ class SignInView extends StatelessWidget {
               ),
               const Spacer(),
               ElevatedButton.icon(
-                onPressed: () => Navigator.pushNamed(
-                    context, '/profilview',),
+                onPressed: (){
+                  //Navigator.pushNamed(context, '/profilview')
+                  createCompte(context, _email.text, _password.text);
+                },
                 icon: const Icon(Icons.login),
                 label: const Text("Compte Profil"),
               )

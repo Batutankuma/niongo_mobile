@@ -13,7 +13,8 @@ class CompteUser{
   final String id;
   final String email;
   final String password;
+  final String session;
 
-  CompteUser(this.id, this.email, this.password);
+  CompteUser(this.id, this.email, this.password, this.session);
   
 }
