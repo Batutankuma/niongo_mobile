@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:niongo/controllers/authentification.dart';
+import 'package:niongo/widgets/messageSnack.dart';
 
 class SignInView extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
@@ -8,6 +10,9 @@ class SignInView extends StatelessWidget {
   final _globale = GlobalKey<FormState>();
 
   SignInView({super.key});
+
+  //instacier la classe Authentification
+  AuthentificationService authentificationService = AuthentificationService();
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +73,13 @@ class SignInView extends StatelessWidget {
                                   const SizedBox(height: 25),
                                   //Input Email
                                   TextFormField(
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Veillez mettre votre mail';
+                                      } else {
+                                        return null;
+                                      }
+                                    },
                                     controller: _email,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: const InputDecoration(
@@ -93,6 +105,13 @@ class SignInView extends StatelessWidget {
                                   const SizedBox(height: 10),
                                   //Input Password
                                   TextFormField(
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Veillez mettre le mot de passe';
+                                      } else {
+                                        return null;
+                                      }
+                                    },
                                     obscureText: true,
                                     controller: _password,
                                     keyboardType: TextInputType.visiblePassword,
@@ -106,8 +125,19 @@ class SignInView extends StatelessWidget {
                                   ),
                                   //Message Forgot Your Password
                                   const SizedBox(height: 15),
-                                  //Button Login
+                                  //Button Register
                                   GestureDetector(
+                                    onTap: () async {
+                                      if (_globale.currentState!.validate()) {
+                                        try {
+                                          await authentificationService
+                                              .createCompte(
+                                                  _email.text, _password.text);
+                                        } catch (e) {
+                                          snackBarMessageError(context, e.toString());
+                                        }
+                                      }
+                                    },
                                     child: Container(
                                       height: 52,
                                       color: Colors.black,

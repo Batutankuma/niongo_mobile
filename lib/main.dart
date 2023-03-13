@@ -1,10 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:niongo/firebase_options.dart';
 import 'package:niongo/views/home_view.dart';
 import 'package:niongo/views/login_view.dart';
 import 'package:niongo/views/profil_view.dart';
 import 'package:niongo/views/signin_view.dart';
 import 'package:niongo/views/splash_view.dart';
 void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 

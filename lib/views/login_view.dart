@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:niongo/controllers/authentification.dart';
+import 'package:niongo/widgets/messageSnack.dart';
 
 class LoginView extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final _globale = GlobalKey<FormState>();
 
+  AuthentificationService authentificationService = AuthentificationService();
   LoginView({super.key});
 
   @override
@@ -67,6 +70,13 @@ class LoginView extends StatelessWidget {
                                   const SizedBox(height: 25),
                                   //Input Email
                                   TextFormField(
+                                    validator: (value){
+                                      if (value!.isEmpty) {
+                                        return 'Veillez mettre le mot de passe';
+                                      }else{
+                                        return null;
+                                      }
+                                    },
                                     controller: _email,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: const InputDecoration(
@@ -79,6 +89,13 @@ class LoginView extends StatelessWidget {
                                   const SizedBox(height: 10),
                                   //Input Password
                                   TextFormField(
+                                    validator: (value){
+                                      if (value!.isEmpty) {
+                                        return 'Veillez mettre le mot de passe';
+                                      }else{
+                                        return null;
+                                      }
+                                    },
                                     controller: _password,
                                     keyboardType: TextInputType.visiblePassword,
                                     decoration: const InputDecoration(
@@ -103,6 +120,16 @@ class LoginView extends StatelessWidget {
                                   const SizedBox(height: 15),
                                   //Button Login
                                   GestureDetector(
+                                    onTap: () async{
+                                      //validation formulaire
+                                      if (_globale.currentState!.validate()) {
+                                        try {
+                                          await authentificationService.connectingApplication(context,_email.text, _password.text);
+                                        } catch (e) {
+                                          snackBarMessageError(context, e.toString());
+                                        }
+                                      }
+                                    },
                                     child: Container(
                                       height: 52,
                                       color: Colors.black,
