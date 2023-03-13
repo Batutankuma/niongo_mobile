@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "981237494121",
+    "project_id": "flutter-colab-b16ec",
+    "storage_bucket": "flutter-colab-b16ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981237494121:android:11fe04bd5c2be148494df8",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981237494121-k22b4k3374c0jbnock4h479tsmi1k4ho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvlwIeNPFB6IsFQgFwnPZ6iC1nZu0m-A4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981237494121-k22b4k3374c0jbnock4h479tsmi1k4ho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981237494121:android:2b2edc24cc0d8b08494df8",
+        "android_client_info": {
+          "package_name": "com.example.niongo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981237494121-k22b4k3374c0jbnock4h479tsmi1k4ho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvlwIeNPFB6IsFQgFwnPZ6iC1nZu0m-A4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981237494121-k22b4k3374c0jbnock4h479tsmi1k4ho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

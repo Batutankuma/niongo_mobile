@@ -156,7 +156,9 @@ class LoginView extends StatelessWidget {
                                           color: Colors.grey,
                                           fontWeight: FontWeight.bold)),
                                   const SizedBox(height: 10),
+                                  //register views
                                   GestureDetector(
+                                    onTap: () => Navigator.pushNamed(context, '/siginview'),
                                     child: Container(
                                       height: 50,
                                       color: Colors.grey[100],
